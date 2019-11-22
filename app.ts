@@ -45,3 +45,32 @@ const person2 = {
 if (person2.role === Role.ADMIN) {
   console.log(person2);
 }
+
+//UNIONS
+
+const add2 = (input1: number | string, input2: number | string) => {
+  // const result = input1 + input2;
+  // return result;
+};
+
+//LITERAL TYPES
+
+const add3 = (
+  input1: number | string,
+  input2: number | string,
+  resultConversion: "as-number" | "as-string"
+) => {
+  // const result = input1 + input2;
+  // return result;
+};
+
+//TYPE ALIASES/CUSTOM TYPES
+
+type Combinable = number | string;
+type ConversionDescriptor = "as-number" | "as-string";
+
+const add4 = (
+  input1: Combinable,
+  input2: Combinable,
+  resultConversion: ConversionDescriptor
+) => {};
