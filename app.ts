@@ -74,3 +74,55 @@ const add4 = (
   input2: Combinable,
   resultConversion: ConversionDescriptor
 ) => {};
+
+//FUNCTIONS
+
+const add5 = (n1: number, n2: number): number => {
+  return n1 + n2;
+};
+
+//VOID
+
+const printResult = (num: number): void => {
+  console.log(`Result ${num}`);
+};
+
+printResult(add5(2, 3));
+
+//FUNCTIONS AS TYPES
+
+let combineValues: (a: number, b: number) => number;
+
+//FUNCTION TYPES AND CALLBACKS
+
+const addAndHandle = (n1: number, n2: number, cb: (num: number) => void) => {
+  const result = n1 + n2;
+  cb(result);
+};
+addAndHandle(10, 20, result => {
+  console.log(result);
+});
+
+//UNKNOWN
+//Better than "Any" type, as it doesnt just disable TS.
+
+//Doesnt work
+let userInput: unknown;
+
+//Works
+// let userInput: any
+
+let userName: string;
+
+userInput = 5;
+userInput = "derp";
+// userName = userInput;
+
+//NEVER
+
+//This never returns anything. Not undefined or null. Just crashes code.
+const generateError = (message: string, code: number): never => {
+  throw { message, errorCode: code };
+};
+
+generateError("Error happened", 500);
