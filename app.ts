@@ -1,10 +1,32 @@
-const add = (n1: number, n2: number, printResult: boolean, phrase: string) => {
-  return printResult ? console.log(`${phrase}${n1 + n2}`) : n1 + n2;
-};
+class Department {
+  // private name: string;
+  private employees: string[] = [];
 
-let num1 = 2;
-const num2 = 3;
-const printResult = true;
-const resultPhrase = "The result is ";
+  constructor(public name: string, private readonly id: number) {
+    // this.name = n;
+  }
 
-add(num1, num2, printResult, resultPhrase);
+  describe(this: Department) {
+    console.log(`Department: ${this.name}`);
+  }
+
+  addEmployee(employee: string) {
+    this.employees.push(employee);
+  }
+
+  printEmployeeInfo() {
+    console.log(this.employees.length);
+    console.log(this.employees);
+  }
+}
+
+const accounting = new Department("Accounting", 1);
+
+accounting.describe();
+
+accounting.addEmployee("Mike");
+accounting.addEmployee("Bert");
+accounting.printEmployeeInfo();
+
+accounting.addEmployee("Ernie");
+accounting.printEmployeeInfo();

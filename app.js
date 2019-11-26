@@ -1,8 +1,28 @@
-var add = function (n1, n2, printResult, phrase) {
-    return printResult ? console.log("" + phrase + (n1 + n2)) : n1 + n2;
-};
-var num1 = 2;
-var num2 = 3;
-var printResult = true;
-var resultPhrase = "The result is ";
-add(num1, num2, printResult, resultPhrase);
+"use strict";
+var Department = /** @class */ (function () {
+    function Department(name, id) {
+        this.name = name;
+        this.id = id;
+        // private name: string;
+        this.employees = [];
+        // this.name = n;
+    }
+    Department.prototype.describe = function () {
+        console.log("Department: " + this.name);
+    };
+    Department.prototype.addEmployee = function (employee) {
+        this.employees.push(employee);
+    };
+    Department.prototype.printEmployeeInfo = function () {
+        console.log(this.employees.length);
+        console.log(this.employees);
+    };
+    return Department;
+}());
+var accounting = new Department("Accounting", 1);
+accounting.describe();
+accounting.addEmployee("Mike");
+accounting.addEmployee("Bert");
+accounting.printEmployeeInfo();
+accounting.addEmployee("Ernie");
+accounting.printEmployeeInfo();
