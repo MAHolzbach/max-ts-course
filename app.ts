@@ -20,13 +20,23 @@ class Department {
   }
 }
 
-const accounting = new Department("Accounting", 1);
+class ITDepartment extends Department {
+  admins: string[];
+  constructor(id: number, admins: string[]) {
+    super("IT", id);
+    this.admins = admins;
+  }
+}
 
-accounting.describe();
+const it = new ITDepartment(1, ["Mike"]);
 
-accounting.addEmployee("Mike");
-accounting.addEmployee("Bert");
-accounting.printEmployeeInfo();
+it.describe();
 
-accounting.addEmployee("Ernie");
-accounting.printEmployeeInfo();
+it.addEmployee("Mike");
+it.addEmployee("Bert");
+it.printEmployeeInfo();
+
+it.addEmployee("Ernie");
+it.printEmployeeInfo();
+
+console.log(it);
