@@ -73,7 +73,8 @@ const employee1 = Department.createEmployee("Mark");
 
 const it = new ITDepartment(1, ["Mike"]);
 const accounting = new AccountingDepartment(2, []);
-console.log(Department.fiscalYear);
+
+// console.log(Department.fiscalYear);
 // accounting.mostRecentReport = "Report number 5.";
 // console.log(accounting.mostRecentReport);
 // it.describe();
